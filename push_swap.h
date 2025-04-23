@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:54:04 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 14:11:00 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/23 23:26:18 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 # include <stdlib.h>
 # include <string.h>
 # include <error.h>
+# include <limits.h>
 # include "printf/ft_printf.h"
 
 // STRUCT
 typedef struct s_list
 {
 	int				content;
-	int				index_a;
-	int				index_b;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -32,12 +32,27 @@ typedef struct s_data
 {
 	int	index_a;
 	int	index_b;
+	int	good_index_a;
+	int	good_index_b;
 }			t_data;
+
+// ALGO :
+void	start_algo(t_list **stack_a, t_list **stack_b, int lstsize);
+void	sort_mini(t_list **stack_a);
+void	big_algo(t_list **stack_a, t_list **stack_b);
+int		bigger_int(t_list **stack_a);
+void	pb_sort(t_list **stack_a, t_list **stack_b);
+void	put_index(t_list **stack_a, t_list **stack_b, t_data *data);
+void	find_index(t_list **stack_a, t_list **stack_b, t_data *data);
+void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data);
+void	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data);
+void	debug_print_stack(t_list *stack, const char *msg);
 
 //	CHECK ERROR
 void	check_error(char **str);
 void	ft_error(void);
 int		check_good(t_list **stack_a);
+void	ft_lstclear(t_list **lst);
 
 //	OPERATION
 void	rotate(t_list **stack);
@@ -53,13 +68,7 @@ void	ss(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
-
-// ALGO :
-void	start_algo(t_list **stack_a, t_list **stack_b, int lstsize);
-void	sort_mini(t_list **stack_a);
-void	big_algo(t_list **stack_a, t_list **stack_b);
-int		bigger_int(t_list **stack_a);
-void	pb_sort(t_list **stack_a, t_list **stack_b);
+void	rr_ra_rb(t_list **stack_a, t_list **stack_b, t_data *data);
 
 //	LIBFT :
 void	ft_lstadd_back(t_list **lst, t_list *new);

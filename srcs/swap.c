@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anso <anso@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:30:14 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/13 12:56:54 by anso             ###   ########.fr       */
+/*   Updated: 2025/04/23 23:08:51 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	swap(t_list **lst)
 {
-	t_list	*tmp;
-	t_list	*tmp1;
+	t_list	*first;
+	t_list	*second;
 
-	if (!lst || *lst == NULL || !(*lst)->next)
+	if (!lst || !(*lst) || !(*lst)->next)
 		ft_error();
-	tmp = *lst;
-	tmp1 = tmp->next;
-	tmp->next = tmp1->next;
-	tmp1->next = tmp;
-	*lst = tmp1;
+	first = *lst;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*lst = second;
 }
 
 void	sa(t_list **stack_a)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lst.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 18:00:43 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/16 17:07:26 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:30:38 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!new)
+	if (!lst || !new)
 		ft_error();
-	new->next = NULL;
 	if (new && lst && *lst)
 		ft_lstlast(*lst)->next = new;
 	else if (new)

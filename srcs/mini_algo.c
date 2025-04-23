@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:47:29 by anso              #+#    #+#             */
-/*   Updated: 2025/04/22 16:26:52 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:05:26 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	sort_mini(t_list **stack_a)
 	maxint = bigger_int(stack_a);
 	if (ft_lstsize(stack_a) == 2)
 	{
-		sa(stack_a);
+		if ((*stack_a)->content > ((*stack_a)->next)->content)
+			sa(stack_a);
 		return ;
 	}
 	else
@@ -35,16 +36,16 @@ void	sort_mini(t_list **stack_a)
 
 int	bigger_int(t_list **stack_a)
 {
-	int		biggest;
-	t_list	*lst;
+    int		biggest;
+    t_list	*lst;
 
-	lst = *stack_a;
-	biggest = lst->content;
-	while (lst->next)
-	{
-		if (biggest < (lst->next)->content)
-			biggest = (lst->next)->content;
-		lst = lst->next;
-	}
-	return (biggest);
+    lst = *stack_a;
+    biggest = lst->content;
+    while (lst->next)
+    {
+        if (biggest < (lst->next)->content)
+            biggest = (lst->next)->content;
+        lst = lst->next;
+    }
+    return (biggest);
 }

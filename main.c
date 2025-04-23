@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:09 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/22 16:24:45 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/23 23:59:00 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	main(int ac, char **av)
 		return (0);
 	start_algo(&stack_a, &stack_b, ft_lstsize(&stack_a));
 	print_list(stack_a);
-	ft_printf("B:\n");
 	print_list(stack_b);
 	ft_lstclear(&stack_a);
 }
