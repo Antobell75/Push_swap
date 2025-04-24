@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:54:04 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 23:26:18 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:32:21 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ void	sort_mini(t_list **stack_a);
 void	big_algo(t_list **stack_a, t_list **stack_b);
 int		bigger_int(t_list **stack_a);
 void	pb_sort(t_list **stack_a, t_list **stack_b);
-void	put_index(t_list **stack_a, t_list **stack_b, t_data *data);
+void	put_index(t_list **stack_a, t_list **stack_b);
 void	find_index(t_list **stack_a, t_list **stack_b, t_data *data);
 void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data);
 void	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data);
-void	debug_print_stack(t_list *stack, const char *msg);
 
 //	CHECK ERROR
 void	check_error(char **str);

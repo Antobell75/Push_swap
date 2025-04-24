@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:14:55 by anso              #+#    #+#             */
-/*   Updated: 2025/04/24 00:00:07 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:36:39 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	big_algo(t_list **stack_a, t_list **stack_b)
 {
 	t_data	*data;
 
-	data = NULL;
 	pb_sort(stack_a, stack_b);
 	while(ft_lstsize(stack_b) > 0)
 	{
-		put_index(stack_a, stack_b, data);
+		data = malloc(sizeof(t_data));
+		if (!data)
+			ft_error();
+		put_index(stack_a, stack_b);
 		find_index(stack_a, stack_b, data);
 		exec_op(stack_a, stack_b, data);
 		free(data);
@@ -55,16 +57,13 @@ void	find_index(t_list **stack_a, t_list **stack_b, t_data *data)
 	}
 }
 
-void	put_index(t_list **stack_a, t_list **stack_b, t_data *data)
+void	put_index(t_list **stack_a, t_list **stack_b)
 {
 	int		i;
 	t_list	*lst;
 
 	lst = *stack_a;
 	i = 0;
-	data = malloc(sizeof(t_data));
-	if (!data)
-		ft_error();
 	while (lst)
 	{
 		lst->index = i;

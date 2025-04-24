@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:08:54 by anso              #+#    #+#             */
-/*   Updated: 2025/04/23 23:21:28 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:58:59 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	start_algo(t_list **stack_a, t_list **stack_b, int lstsize)
 	if (lstsize <= 3)
 		sort_mini(stack_a);
 	else
-		pb(stack_a, stack_b);
-	// 	big_algo(stack_a, stack_b);
+		big_algo(stack_a, stack_b);
 }
 
 int	check_good(t_list **stack_a)
