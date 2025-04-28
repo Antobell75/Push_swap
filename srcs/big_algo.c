@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:14:55 by anso              #+#    #+#             */
-/*   Updated: 2025/04/24 18:36:39 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/28 14:09:09 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	find_index(t_list **stack_a, t_list **stack_b, t_data *data)
 		while (lst_a)
 		{
 			data->index_a = lst_a->index;
-			if ((lst_b->content < lst_a->content) 
+			if ((lst_b->content > lst_a->content)
 				&& (lst_a->index + lst_b->index < data->good_index_a + data->good_index_b))
 			{
 				data->good_index_a = data->index_a;
@@ -86,10 +86,6 @@ void	pb_sort(t_list **stack_a, t_list **stack_b)
 	t_list	*lst;
 
 	bigger = bigger_int(stack_a) / 2;
-	pb(stack_a, stack_b);
-	pb(stack_a, stack_b);
-	if ((*stack_b)->content < ((*stack_b)->next)->content)
-		sb(stack_b);
 	while (ft_lstsize(stack_a) > 3)
 	{
 		lst = *stack_a;
@@ -105,7 +101,6 @@ void	pb_sort(t_list **stack_a, t_list **stack_b)
 
 void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data)
 {
-	find_index(stack_a, stack_b, data);
 	if (data->good_index_a + data->good_index_b == 0)
 		pa(stack_b, stack_a);
 	else
