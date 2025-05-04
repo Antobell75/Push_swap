@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:08:54 by anso              #+#    #+#             */
-/*   Updated: 2025/04/24 17:58:59 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/30 22:09:26 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	check_good(t_list **stack_a)
 	return (1);
 }
 
-void	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data)
+int	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data)
 {
 	t_list	*lst_a;
 	t_list	*lst_b;
@@ -50,7 +50,14 @@ void	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data)
 		if (lst_b->content > lst_a->content)
 			lst_a = lst_a->next;
 		else
-			return ;
+			return (0);
 	}
 	data->good_index_a = 0;
+	return (1);
+}
+
+void	initialize_good_index(t_data *data)
+{
+	data->good_index_a = INT_MAX / 2;
+	data->good_index_b = INT_MAX / 2;
 }

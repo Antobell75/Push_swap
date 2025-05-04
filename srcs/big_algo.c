@@ -6,7 +6,7 @@
 /*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:14:55 by anso              #+#    #+#             */
-/*   Updated: 2025/04/28 14:09:09 by dwsasd           ###   ########.fr       */
+/*   Updated: 2025/04/30 22:34:32 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	big_algo(t_list **stack_a, t_list **stack_b)
 	t_data	*data;
 
 	pb_sort(stack_a, stack_b);
-	while(ft_lstsize(stack_b) > 0)
+	data = malloc(sizeof(t_data));
+	if (!data)
+		ft_error();
+	while (ft_lstsize(stack_b) > 0)
 	{
-		data = malloc(sizeof(t_data));
-		if (!data)
-			ft_error();
 		put_index(stack_a, stack_b);
 		find_index(stack_a, stack_b, data);
 		exec_op(stack_a, stack_b, data);
-		free(data);
 	}
+	free(data);
 }
 
 void	find_index(t_list **stack_a, t_list **stack_b, t_data *data)
@@ -35,22 +35,21 @@ void	find_index(t_list **stack_a, t_list **stack_b, t_data *data)
 	t_list	*lst_b;
 
 	lst_b = *stack_b;
+	initialize_good_index(data);
 	while (lst_b)
 	{
-		data->index_b = lst_b->index;
 		lst_a = *stack_a;
 		while (lst_a)
 		{
-			data->index_a = lst_a->index;
-			if ((lst_b->content > lst_a->content)
-				&& (lst_a->index + lst_b->index < data->good_index_a + data->good_index_b))
+			if (lst_a->next && lst_b->content > lst_a->content
+				&& lst_b->content < lst_a->next->content
+				&& lst_a->index < data->good_index_a
+				&& lst_b->index < data->good_index_b)
 			{
-				data->good_index_a = data->index_a;
-				data->good_index_b = data->index_b;
+				data->good_index_a = lst_a->index;
+				data->good_index_b = lst_b->index;
 			}
 			check_b_bigger_a(stack_a, stack_b, data);
-			if (data->good_index_a == 0)
-				break ;
 			lst_a = lst_a->next;
 		}
 		lst_b = lst_b->next;
@@ -91,12 +90,15 @@ void	pb_sort(t_list **stack_a, t_list **stack_b)
 		lst = *stack_a;
 		if (lst->content >= bigger)
 			pb(stack_a, stack_b);
-		else
+		else if (ft_lstsize(stack_b) >= 2)
 		{
 			pb(stack_a, stack_b);
 			rb(stack_b);
 		}
+		else
+			pb(stack_a, stack_b);
 	}
+	sort_mini(stack_a);
 }
 
 void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data)
@@ -104,5 +106,8 @@ void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data)
 	if (data->good_index_a + data->good_index_b == 0)
 		pa(stack_b, stack_a);
 	else
+	{
 		rr_ra_rb(stack_a, stack_b, data);
+		pa(stack_b, stack_a);
+	}
 }

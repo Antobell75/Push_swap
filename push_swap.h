@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:54:04 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/24 18:32:21 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/04/30 22:09:04 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	pb_sort(t_list **stack_a, t_list **stack_b);
 void	put_index(t_list **stack_a, t_list **stack_b);
 void	find_index(t_list **stack_a, t_list **stack_b, t_data *data);
 void	exec_op(t_list **stack_a, t_list **stack_b, t_data *data);
-void	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data);
+int		check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data);
+void	initialize_good_index(t_data *data);
 
 //	CHECK ERROR
 void	check_error(char **str);
