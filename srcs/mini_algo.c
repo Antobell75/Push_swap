@@ -6,7 +6,7 @@
 /*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 22:47:29 by anso              #+#    #+#             */
-/*   Updated: 2025/04/30 22:31:22 by dwsasd           ###   ########.fr       */
+/*   Updated: 2025/05/05 17:57:36 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,19 @@ int	bigger_int(t_list **stack_a)
 		lst = lst->next;
 	}
 	return (biggest);
+}
+
+int	average_int(t_list **stack_a)
+{
+	int		sum;
+	t_list	*lst;
+
+	lst = *stack_a;
+	sum = 0;
+	while (lst)
+	{
+		sum += lst->content;
+		lst = lst->next;
+	}
+	return (sum / ft_lstsize(stack_a));
 }

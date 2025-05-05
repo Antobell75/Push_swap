@@ -6,7 +6,7 @@
 /*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:54:04 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/30 22:09:04 by dwsasd           ###   ########.fr       */
+/*   Updated: 2025/05/05 17:57:47 by dwsasd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 void	start_algo(t_list **stack_a, t_list **stack_b, int lstsize);
 void	sort_mini(t_list **stack_a);
 void	big_algo(t_list **stack_a, t_list **stack_b);
+int		average_int(t_list **stack_a);
 int		bigger_int(t_list **stack_a);
 void	pb_sort(t_list **stack_a, t_list **stack_b);
 void	put_index(t_list **stack_a, t_list **stack_b);
