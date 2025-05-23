@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 15:08:54 by anso              #+#    #+#             */
-/*   Updated: 2025/04/30 22:09:26 by dwsasd           ###   ########.fr       */
+/*   Updated: 2025/05/23 18:26:42 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	start_algo(t_list **stack_a, t_list **stack_b, int lstsize)
 {
+	(void)stack_b;
 	if (lstsize <= 3)
 		sort_mini(stack_a);
 	else
-		big_algo(stack_a, stack_b);
+		return ;
 }
 
 int	check_good(t_list **stack_a)
@@ -38,26 +39,29 @@ int	check_good(t_list **stack_a)
 	return (1);
 }
 
-int	check_b_bigger_a(t_list **stack_a, t_list **stack_b, t_data *data)
+void	sort_median(t_list **stack_a)
 {
-	t_list	*lst_a;
-	t_list	*lst_b;
+	int		i;
+	int		j;
+	t_list	*lst;
 
-	lst_a = *stack_a;
-	lst_b = *stack_b;
-	while (lst_a)
+	lst = *stack_a;
+	i = 0;
+	while (lst)
 	{
-		if (lst_b->content > lst_a->content)
-			lst_a = lst_a->next;
-		else
-			return (0);
+		lst->index = i++;
+		lst = lst->next;
 	}
-	data->good_index_a = 0;
-	return (1);
-}
-
-void	initialize_good_index(t_data *data)
-{
-	data->good_index_a = INT_MAX / 2;
-	data->good_index_b = INT_MAX / 2;
+	lst = *stack_a;
+	while (lst)
+	{
+		j = 0;
+		while (j < i)
+		{
+			if (lst->content == j)
+				lst->median = j;
+			j++;
+		}
+		lst = lst->next;
+	}
 }

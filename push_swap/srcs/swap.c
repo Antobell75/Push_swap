@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwsasd <dwsasd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:30:14 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/28 14:41:11 by dwsasd           ###   ########.fr       */
+/*   Updated: 2025/05/23 18:32:37 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ void	swap(t_list **lst)
 {
 	t_list	*first;
 	t_list	*second;
+	t_list	*prev;
 
 	if (!lst || !(*lst) || !(*lst)->next)
-		ft_error();
+		ft_error("list too small");
 	first = *lst;
 	second = first->next;
+	prev = second->prev;
 	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
 	second->next = first;
 	*lst = second;
 }

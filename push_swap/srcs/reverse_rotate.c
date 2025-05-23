@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 00:32:24 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 23:19:57 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:18:34 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	reverse_rotate(t_list **lst)
 	t_list	*last;
 
 	if (!lst || !*lst || !(*lst)->next)
-		ft_error();
+		ft_error("list too small");
 	curr = *lst;
 	last = *lst;
 	while ((curr->next)->next)

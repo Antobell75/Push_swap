@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 18:00:43 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 19:30:38 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/05/23 18:49:14 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*ft_lstnew(int data)
 		return (NULL);
 	result->content = data;
 	result->next = NULL;
+	result->prev = NULL;
 	return (result);
 }
 
@@ -54,7 +55,7 @@ t_list	*ft_lstlast(t_list *lst)
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
-		ft_error();
+		ft_error("list null");
 	new->next = *lst;
 	*lst = new;
 }
@@ -62,7 +63,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
-		ft_error();
+		ft_error("list null");
 	if (new && lst && *lst)
 		ft_lstlast(*lst)->next = new;
 	else if (new)

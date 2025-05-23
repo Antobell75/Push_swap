@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:58:09 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 23:59:00 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:18:31 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!(ac > 2))
-		ft_error();
+		ft_error("not enough args");
 	put_elem(&stack_a, av + 1);
 	if (check_good(&stack_a))
 		return (0);

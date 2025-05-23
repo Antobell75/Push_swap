@@ -6,7 +6,7 @@
 /*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 16:32:21 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/23 23:09:03 by anbellar         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:18:34 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate(t_list **lst)
 	t_list	*last;
 
 	if (!lst || !(*lst) || !(*lst)->next)
-		ft_error();
+		ft_error("list too small");
 	first = *lst;
 	last = ft_lstlast(*lst);
 	last->next = first;

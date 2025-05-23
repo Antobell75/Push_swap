@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_libft.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anso <anso@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: anbellar <anbellar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 15:10:40 by anbellar          #+#    #+#             */
-/*   Updated: 2025/04/13 12:58:10 by anso             ###   ########.fr       */
+/*   Updated: 2025/05/23 17:18:33 by anbellar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_atoi(const char *str)
 	while (str[i])
 	{
 		if (!(str[i] >= '0' && str[i] <= '9'))
-			ft_error();
+			ft_error("not a number");
 		result *= 10;
 		result += str[i] - '0';
 		i++;

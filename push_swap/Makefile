@@ -10,8 +10,6 @@ SRC = srcs/push.c \
 		srcs/ft_libft.c \
 		srcs/check_error.c \
 		srcs/mini_algo.c \
-		srcs/big_algo.c \
-		srcs/big_algo_utils.c \
 		srcs/init.c
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
